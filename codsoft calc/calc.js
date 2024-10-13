@@ -67,3 +67,16 @@ function calculateResult() {
     waitingForSecondOperand = true; 
     updateDisplay();
 }
+function calculator(operation, num1, num2) {
+    switch(operation) {
+        case 'add': return num1 + num2;
+        case 'subtract': return num1 - num2;
+        case 'multiply': return num1 * num2;
+        case 'divide': return num1 / num2;
+        case 'modulus': return num1 % num2;
+        case 'power': return Math.pow(num1, num2);
+        case 'sqrt': return Math.sqrt(num1);
+        default: return 'Invalid operation';
+    }
+}
+

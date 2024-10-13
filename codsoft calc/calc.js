@@ -99,4 +99,32 @@ function calculator(operation, num1, num2) {
         default: return 'Invalid operation';
     }
 }
+let memory = 0; // Variable to store memory value
+
+function calculator(operation, num1, num2) {
+    if (isNaN(num1) || (num2 !== undefined && isNaN(num2))) {
+        return 'Error: Inputs must be numbers';
+    }
+
+    switch(operation) {
+        case 'add': return num1 + num2;
+        case 'subtract': return num1 - num2;
+        case 'multiply': return num1 * num2;
+        case 'divide': 
+            if (num2 === 0) return 'Error: Cannot divide by zero';
+            return num1 / num2;
+        case 'modulus': return num1 % num2;
+        case 'power': return Math.pow(num1, num2);
+        case 'sqrt': return num1 >= 0 ? Math.sqrt(num1) : 'Error: Cannot take square root of negative number';
+        
+        // Memory operations
+        case 'MS': memory = num1; return `Memory Stored: ${memory}`;
+        case 'MR': return memory;
+        case 'MC': memory = 0; return 'Memory Cleared';
+        case 'M+': memory += num1; return `Memory Updated: ${memory}`;
+        case 'M-': memory -= num1; return `Memory Updated: ${memory}`;
+        
+        default: return 'Invalid operation';
+    }
+}
 
